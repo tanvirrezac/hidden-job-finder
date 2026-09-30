@@ -1,0 +1,19 @@
+# Self-hosted n8n for Hidden Job Finder.
+#   docker compose up -d        → open http://localhost:5678
+# The schedule only fires while this container is running, so use an
+# always-on machine (home server, small VPS) or n8n Cloud instead.
+services:
+  n8n:
+    image: docker.n8n.io/n8nio/n8n:latest   # pin a version tag once it works for you
+    restart: unless-stopped
+    ports:
+      - "5678:5678"
+    environment:
+      - GENERIC_TIMEZONE=America/Edmonton
+      - TZ=America/Edmonton
+    volumes:
+      - n8n_data:/home/node/.n8n          # keeps credentials, workflows and the seen-jobs state
+      - ./workflows:/files/workflows:ro   # lets you import the workflow from the CLI
+
+volumes:
+  n8n_data:

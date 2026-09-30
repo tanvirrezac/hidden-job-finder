@@ -1,0 +1,482 @@
+{
+  "_readme": "Used for match_score. Built from master_resume.json (Sep 30, 2026) plus tools you confirmed in resume sessions (SAP, MS Access, MS Project, MongoDB, VBA, Salesforce, Dynamics 365, Monday.com, Power Automate, Copilot Studio, R). 'tools' count 1, 'practices' 0.5, 'lacks' are recurring gaps. Each entry: label -> phrases that count in a job description.",
+  "yearsOfExperience": 8,
+  "titleTracks": {
+    "strong": [
+      "business analyst",
+      "business systems analyst",
+      "systems analyst",
+      "financial analyst",
+      "finance analyst",
+      "fp&a",
+      "financial planning",
+      "planning analyst",
+      "finance business partner",
+      "data analyst",
+      "bi analyst",
+      "business intelligence",
+      "reporting analyst",
+      "insights analyst",
+      "product manager",
+      "product owner",
+      "product analyst",
+      "pricing analyst",
+      "revenue analyst",
+      "commercial analyst"
+    ],
+    "medium": [
+      "strategy",
+      "strategic",
+      "operations analyst",
+      "business operations",
+      "program analyst",
+      "process analyst",
+      "decision support",
+      "analytics",
+      "data scientist",
+      "project manager",
+      "program manager",
+      "scrum master",
+      "business development analyst"
+    ],
+    "stretch": [
+      "staff",
+      "principal",
+      "group product manager",
+      "head of"
+    ]
+  },
+  "tools": {
+    "SQL": [
+      "sql",
+      "t-sql",
+      "sql server",
+      "postgresql",
+      "mysql",
+      "pl/sql",
+      "ctes"
+    ],
+    "Python": [
+      "python",
+      "pandas",
+      "numpy",
+      "scikit-learn",
+      "sklearn",
+      "matplotlib",
+      "scipy",
+      "statsmodels",
+      "nltk",
+      "beautifulsoup"
+    ],
+    "Power BI": [
+      "power bi",
+      "powerbi",
+      "dax",
+      "power query"
+    ],
+    "Tableau": [
+      "tableau"
+    ],
+    "Excel": [
+      "excel",
+      "pivot tables",
+      "vlookup",
+      "xlookup",
+      "power pivot"
+    ],
+    "VBA / macros": [
+      "vba",
+      "macros"
+    ],
+    "SAP": [
+      "sap"
+    ],
+    "Oracle": [
+      "oracle"
+    ],
+    "Teradata": [
+      "teradata"
+    ],
+    "MongoDB": [
+      "mongodb"
+    ],
+    "MS Access": [
+      "ms access",
+      "microsoft access"
+    ],
+    "MS Project": [
+      "ms project",
+      "microsoft project"
+    ],
+    "Salesforce (end-user)": [
+      "salesforce"
+    ],
+    "Dynamics 365": [
+      "dynamics 365",
+      "d365",
+      "microsoft dynamics"
+    ],
+    "Jira": [
+      "jira"
+    ],
+    "Confluence": [
+      "confluence"
+    ],
+    "Visio": [
+      "visio"
+    ],
+    "Power Automate": [
+      "power automate"
+    ],
+    "Copilot Studio": [
+      "copilot studio"
+    ],
+    "Monday.com": [
+      "monday.com"
+    ],
+    "R": [
+      "r programming",
+      "rstudio",
+      "python or r",
+      "r or python",
+      "python/r",
+      "r/python",
+      "python and r"
+    ],
+    "Lucidchart": [
+      "lucidchart"
+    ],
+    "PowerPoint": [
+      "powerpoint"
+    ]
+  },
+  "practices": {
+    "Agile / Scrum": [
+      "agile",
+      "scrum",
+      "sprint",
+      "backlog",
+      "user stories"
+    ],
+    "Requirements / BRD": [
+      "requirements gathering",
+      "business requirements",
+      "brd",
+      "srs",
+      "frs",
+      "functional specifications",
+      "requirements elicitation",
+      "use cases",
+      "gap analysis"
+    ],
+    "UAT": [
+      "uat",
+      "user acceptance testing",
+      "test cases",
+      "defect triage",
+      "defect management"
+    ],
+    "Process mapping": [
+      "process mapping",
+      "as-is",
+      "to-be",
+      "process improvement",
+      "root cause"
+    ],
+    "Forecasting": [
+      "forecasting",
+      "forecast"
+    ],
+    "Budgeting / variance": [
+      "budgeting",
+      "variance analysis",
+      "variance"
+    ],
+    "Financial modelling": [
+      "financial modeling",
+      "financial modelling",
+      "scenario analysis",
+      "sensitivity analysis",
+      "business case",
+      "roi",
+      "cost-benefit",
+      "valuation",
+      "monte carlo"
+    ],
+    "KPI dashboards / reporting": [
+      "kpi",
+      "kpis",
+      "dashboards",
+      "dashboard"
+    ],
+    "A/B testing / experimentation": [
+      "a/b testing",
+      "a/b tests",
+      "a/b test",
+      "experimentation",
+      "hypothesis testing"
+    ],
+    "Pricing": [
+      "pricing"
+    ],
+    "Churn / retention / segmentation": [
+      "churn",
+      "retention",
+      "segmentation",
+      "cohort"
+    ],
+    "Machine learning": [
+      "machine learning",
+      "predictive modeling",
+      "predictive modelling",
+      "regression"
+    ],
+    "Stakeholder management": [
+      "stakeholder management",
+      "stakeholders",
+      "cross-functional"
+    ],
+    "Product roadmap": [
+      "roadmap",
+      "product lifecycle",
+      "go-to-market",
+      "okrs",
+      "okr",
+      "release management",
+      "release planning"
+    ],
+    "SLAs / vendor management": [
+      "sla",
+      "slas",
+      "vendor management"
+    ],
+    "Project management (PMP)": [
+      "pmp",
+      "project management"
+    ],
+    "CSPO / CSM": [
+      "cspo",
+      "certified scrum",
+      "scrum master"
+    ],
+    "MBA / Finance degree": [
+      "mba",
+      "degree in finance",
+      "finance degree"
+    ],
+    "Data science degree": [
+      "data science",
+      "master's degree",
+      "masters degree"
+    ],
+    "ETL / data pipelines": [
+      "etl",
+      "data pipeline",
+      "data pipelines",
+      "data wrangling",
+      "data cleaning"
+    ],
+    "Statistics / EDA": [
+      "statistical analysis",
+      "exploratory data analysis",
+      "eda",
+      "statistics",
+      "survival analysis"
+    ],
+    "SaaS metrics / unit economics": [
+      "arpu",
+      "cac",
+      "ltv",
+      "unit economics",
+      "saas metrics"
+    ],
+    "Data governance / documentation": [
+      "data governance",
+      "data dictionary",
+      "data quality",
+      "data integrity"
+    ],
+    "Product analytics / funnels": [
+      "funnel",
+      "product analytics",
+      "feature adoption",
+      "user engagement"
+    ],
+    "Capacity planning": [
+      "capacity planning",
+      "capacity model",
+      "capacity modeling",
+      "throughput"
+    ],
+    "NPS / customer experience": [
+      "nps",
+      "net promoter",
+      "customer experience"
+    ],
+    "SDLC": [
+      "sdlc",
+      "software development lifecycle"
+    ],
+    "APIs / automation": [
+      "api",
+      "apis",
+      "rest api",
+      "web scraping",
+      "automation"
+    ]
+  },
+  "lacks": {
+    "Workday": [
+      "workday"
+    ],
+    "SharePoint": [
+      "sharepoint"
+    ],
+    "ServiceNow": [
+      "servicenow"
+    ],
+    "Snowflake": [
+      "snowflake"
+    ],
+    "Databricks": [
+      "databricks"
+    ],
+    "BigQuery": [
+      "bigquery"
+    ],
+    "Looker / Looker Studio": [
+      "looker",
+      "looker studio"
+    ],
+    "Microsoft Fabric / Synapse": [
+      "microsoft fabric",
+      "synapse"
+    ],
+    "Azure Data Factory": [
+      "azure data factory",
+      "adf"
+    ],
+    "dbt / Airflow / Spark": [
+      "dbt",
+      "airflow",
+      "spark",
+      "pyspark"
+    ],
+    "AWS / GCP": [
+      "aws",
+      "gcp",
+      "google cloud"
+    ],
+    "Anaplan / Adaptive / EPM": [
+      "anaplan",
+      "adaptive insights",
+      "workday adaptive",
+      "hyperion",
+      "oracle epm",
+      "pigment"
+    ],
+    "NetSuite": [
+      "netsuite"
+    ],
+    "Kinaxis": [
+      "kinaxis"
+    ],
+    "Power Apps / Dataverse": [
+      "power apps",
+      "powerapps",
+      "dataverse"
+    ],
+    "Alteryx / KNIME": [
+      "alteryx",
+      "knime"
+    ],
+    "SAS": [
+      "sas"
+    ],
+    "QuickSight / Cognos / Domo": [
+      "quicksight",
+      "cognos",
+      "domo"
+    ],
+    "Coupa / JD Edwards": [
+      "coupa",
+      "jd edwards"
+    ],
+    "Genesys": [
+      "genesys"
+    ],
+    "Adobe Analytics / CDP": [
+      "adobe analytics",
+      "adobe experience",
+      "customer data platform"
+    ],
+    "TensorFlow / PyTorch": [
+      "tensorflow",
+      "pytorch"
+    ],
+    "Google Sheets / Workspace": [
+      "google sheets",
+      "google workspace"
+    ],
+    "Clari / PlanHat": [
+      "clari",
+      "planhat"
+    ]
+  },
+  "domains": [
+    "telecom",
+    "telecommunications",
+    "saas",
+    "subscription",
+    "fintech",
+    "payments",
+    "mobile wallet",
+    "retail",
+    "e-commerce",
+    "ecommerce",
+    "contact centre",
+    "contact center",
+    "call centre",
+    "call center",
+    "loyalty",
+    "energy",
+    "oil and gas",
+    "utilities",
+    "power markets",
+    "healthcare analytics",
+    "b2b saas",
+    "digital products",
+    "mobile app",
+    "marketing analytics",
+    "campaign",
+    "financial services",
+    "capital markets"
+  ],
+  "knockouts": [
+    {
+      "label": "CPA required",
+      "pattern": "(?:\\bCPA\\b|chartered professional accountant)[^.;]{0,80}\\b(?:required|mandatory|must)\\b|\\b(?:required|must (?:hold|have|possess|be))\\b[^.;]{0,80}(?:\\bCPA\\b|chartered professional accountant)",
+      "cap": true
+    },
+    {
+      "label": "CFA required",
+      "pattern": "\\bCFA\\b[^.;]{0,80}\\b(?:required|mandatory|must)\\b|\\b(?:required|must (?:hold|have|possess|be))\\b[^.;]{0,80}\\bCFA\\b",
+      "cap": true
+    },
+    {
+      "label": "CBAP required",
+      "pattern": "\\bCBAP\\b[^.;]{0,80}\\b(?:required|mandatory|must)\\b|\\b(?:required|must (?:hold|have|possess|be))\\b[^.;]{0,80}\\bCBAP\\b",
+      "cap": true
+    },
+    {
+      "label": "Security clearance",
+      "pattern": "(?:secret|reliability|top secret)\\s+(?:level\\s+)?(?:security\\s+)?clearance",
+      "cap": false
+    },
+    {
+      "label": "People management required",
+      "pattern": "\\d+\\+?\\s*years?[^.;]{0,50}(?:people management|people leadership|managing a team|direct reports)",
+      "cap": false
+    }
+  ]
+}

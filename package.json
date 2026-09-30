@@ -1,0 +1,17 @@
+{
+  "name": "hidden-job-finder",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Daily scan of small-company job boards (Greenhouse, Lever, Ashby, SmartRecruiters, BambooHR, Breezy, Recruitee) that flags likely ghost postings and logs fresh ones to a Google Sheet.",
+  "engines": {
+    "node": ">=18"
+  },
+  "scripts": {
+    "build": "node scripts/build-workflow.mjs",
+    "scan": "node scripts/scan.mjs",
+    "probe": "node scripts/probe.mjs",
+    "test": "node --test test/lib.test.mjs test/workflow.test.mjs test/daily.test.mjs",
+    "daily": "node scripts/daily.mjs",
+    "daily:dry": "DRY_RUN=1 node scripts/daily.mjs"
+  }
+}
