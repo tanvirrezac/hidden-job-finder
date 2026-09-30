@@ -80,7 +80,10 @@ const HJF = (() => {
             title: j.title,
             companyName: j.company_name || '',
             location: clean(j.location && j.location.name),
-            locationExtra: (j.offices || []).map((o) => o.location || o.name).join('; '),
+            // Offices list every office the posting is attached to; use it only when the location
+            // itself is blank or generic, otherwise a Toronto office makes a London job look Canadian.
+            locationExtra: /^\s*(?:|remote|hybrid|multiple locations?|various|various locations|flexible|anywhere)\s*$/i.test((j.location && j.location.name) || '')
+              ? (j.offices || []).map((o) => o.location || o.name).join('; ') : '',
             remote: null,
             url: j.absolute_url,
             postedAt: toIso(j.first_published || j.updated_at),
@@ -107,7 +110,8 @@ const HJF = (() => {
             title: j.text,
             companyName: '',
             location: clean(cat.location),
-            locationExtra: [(cat.allLocations || []).join('; '), j.country || ''].join(' '),
+            locationExtra: (cat.allLocations || []).join('; '),
+            country: j.country || '', // ISO code, e.g. "CA" or "US"
             remote: j.workplaceType === 'remote' ? true : j.workplaceType ? false : null,
             url: j.hostedUrl,
             postedAt: toIso(j.createdAt),
@@ -161,7 +165,8 @@ const HJF = (() => {
             title: j.name,
             companyName: (j.company && j.company.name) || '',
             location: clean(loc.fullLocation || [loc.city, loc.region, loc.country].filter(Boolean).join(', ')),
-            locationExtra: [loc.country === 'ca' ? 'Canada' : loc.country, loc.region].filter(Boolean).join(' '),
+            locationExtra: [loc.country === 'ca' ? 'Canada' : '', loc.region].filter(Boolean).join(' '),
+            country: loc.country || '',
             remote: loc.remote === true ? true : loc.hybrid ? false : null,
             url: `https://jobs.smartrecruiters.com/${encodeURIComponent(slug)}/${j.id}`,
             postedAt: toIso(j.releasedDate),
@@ -213,7 +218,7 @@ const HJF = (() => {
               title: j.title,
               companyName: j.company_name || '',
               location: clean(j.location || [j.city, j.country].filter(Boolean).join(', ')),
-              locationExtra: [j.country, j.state_name, j.country_code].filter(Boolean).join(' '),
+              locationExtra: [j.country, j.state_name].filter(Boolean).join(' '), // not country_code: "NL" would read as Newfoundland
               remote: j.remote === true ? true : j.remote === false ? false : null,
               url: j.careers_url,
               postedAt: toIso(j.published_at || j.created_at),
@@ -277,7 +282,7 @@ const HJF = (() => {
     alberta: /\balberta\b|\bedmonton\b|\bred deer\b|\blethbridge\b|\bmedicine hat\b|\bgrande prairie\b|\bfort mcmurray\b|\bst\.? albert\b|\bsherwood park\b|,\s*AB\b|\bAB,/i,
     canada: /\bcanada\b|\bcanadian\b|\bontario\b|british columbia|\bqu[ée]bec\b|\bmanitoba\b|\bsaskatchewan\b|nova scotia|new brunswick|newfoundland|prince edward island|\btoronto\b|\bvancouver\b|\bmontr[ée]al\b|\bottawa\b|\bwinnipeg\b|\bregina\b|\bsaskatoon\b|\bhalifax\b|\bmississauga\b|\bkitchener\b|\bwaterloo,?\s*on|\bburnaby\b|\bkelowna\b|\boakville\b|\bmarkham\b|\bbrampton\b|\bgatineau\b|\bvictoria,?\s*bc|\bsurrey,?\s*bc|\blondon,?\s*on\b|\bhamilton,?\s*on\b/i,
     caProvinceAbbr: /(?:^|[\s,(])(ON|BC|QC|MB|SK|NS|NB|NL|PE|PEI|YT|NT|NU)(?:$|[\s,)])/,
-    caCountryCode: /(?:^|\s)CA(?:$|\s)/,
+    usOntario: /\bontario,?\s*(?:ca|california)\b/i,  // Ontario, California
     caShort: /(?:^|[\s,(])CAN(?:$|[\s,)])/,
     us: /\bunited states\b|\busa\b|\bu\.s\.|(?:^|[\s,(-])US(?:$|[\s,)-])/i,
   };
@@ -287,7 +292,12 @@ const HJF = (() => {
     const remote = job.remote === true || RE.remote.test(job.location || '');
     const isCalgary = RE.calgary.test(text);
     const isAlberta = isCalgary || RE.alberta.test(text);
-    const isCanada = isAlberta || RE.canada.test(text) || RE.caProvinceAbbr.test(text) || RE.caCountryCode.test(job.locationExtra || '') || RE.caShort.test(text);
+    const countryCode = String(job.country || '').trim().toUpperCase();
+    if (countryCode && countryCode !== 'CA' && countryCode.length === 2 && !RE.canada.test(job.locationExtra || '')) {
+      // Structured country says elsewhere (e.g. Lever "US"), unless another location on the posting is in Canada.
+      if (!isCalgary && !isAlberta && !RE.canada.test(job.location || '') && !RE.caProvinceAbbr.test(job.location || '')) return settings.allowUS && countryCode === 'US' ? { tier: 'us', label: remote ? 'Remote (US)' : 'United States' } : null;
+    }
+    const isCanada = countryCode === 'CA' || isAlberta || ((RE.canada.test(text) && !RE.usOntario.test(text)) || RE.caProvinceAbbr.test(text) || RE.caShort.test(text));
     if (isCalgary && !remote) return { tier: 'calgary', label: 'Calgary area' };
     if (isAlberta && !remote) return { tier: 'alberta', label: 'Alberta' };
     if (isCanada && !remote) return { tier: 'canada', label: 'Canada (on-site/hybrid)' };
