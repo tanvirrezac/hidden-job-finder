@@ -73,7 +73,7 @@ export async function fetchBoard(company) {
   }
 }
 
-export async function fetchAll(companies, batchSize = 6) {
+export async function fetchAll(companies, batchSize = 16) {
   const boards = [];
   for (let i = 0; i < companies.length; i += batchSize) {
     boards.push(...await Promise.all(companies.slice(i, i + batchSize).map(fetchBoard)));
