@@ -55,7 +55,19 @@
     "architect",
     "account executive",
     "sales representative",
-    "recruiter"
+    "recruiter",
+    "senior",
+    "sr",
+    "sr.",
+    "staff",
+    "principal",
+    "manager",
+    "managers"
+  ],
+  "titleKeep": [
+    "product manager",
+    "project manager",
+    "program manager"
   ],
   "ghostTitlePhrases": [
     "talent pool",
