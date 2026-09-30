@@ -350,7 +350,11 @@ const HJF = (() => {
     const { settings, nowIso, boardSize, firstSeenIso, priorSameTitle, companyScannedBefore, compiled } = ctx;
     const title = clean(job.title);
     if (!compiled.titleInclude || !compiled.titleInclude.test(title)) return null;
-    if (compiled.titleExclude && compiled.titleExclude.test(title)) return null;
+    // Excluded words drop a title unless a "keep" phrase explains them ("Product Manager" isn't a people-leader role).
+    if (compiled.titleExclude && compiled.titleExclude.test(title)) {
+      const stripped = compiled.titleKeep ? title.replace(new RegExp(compiled.titleKeep.source, 'gi'), ' ') : title;
+      if (compiled.titleExclude.test(stripped)) return null;
+    }
 
     const loc = classifyLocation(job, company, settings);
     if (!loc) return null;
@@ -423,6 +427,7 @@ const HJF = (() => {
     return {
       titleInclude: phraseRegex(settings.titleInclude),
       titleExclude: phraseRegex(settings.titleExclude),
+      titleKeep: phraseRegex(settings.titleKeep),
       ghostTitle: phraseRegex(settings.ghostTitlePhrases),
       ghostDescription: phraseRegex(settings.ghostDescriptionPhrases),
       agency: phraseRegex(settings.agencyPhrases),
